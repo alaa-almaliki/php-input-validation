@@ -19,7 +19,7 @@ class Validation implements ValidationInterface
      * @param array $rules
      * @return bool
      */
-    public function validate($input, array $rules): bool
+    public function validate($input, array $rules)
     {
         $isValid = true;
         foreach ($rules as $rule) {
@@ -28,7 +28,7 @@ class Validation implements ValidationInterface
             $isValid &= $ruleInstance->validate($input);
         }
 
-        return $isValid;
+        return (bool) $isValid;
     }
 
     /**

@@ -14,5 +14,5 @@ interface ValidationInterface
      * @param array $rules
      * @return bool
      */
-    public function validate($input, array $rules) : bool;
+    public function validate($input, array $rules);
 }
