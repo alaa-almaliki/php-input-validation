@@ -1,0 +1,25 @@
+{
+  "name": "alaa-almaliki/php-input-validation",
+  "type": "php-library",
+  "homepage": "https://github.com/alaa-almaliki/php-input-validation",
+  "license": "MIT",
+  "keywords": [
+    "php-input-validation",
+    "input-validation"
+  ],
+  "authors": [
+    {
+      "name": "Alaa Al-Maliki",
+      "email": "alaa.almaliki@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "respect/validation": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rv\\InputValidation\\": "src/"
+    }
+  }
+}
