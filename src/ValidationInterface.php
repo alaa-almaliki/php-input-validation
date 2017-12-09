@@ -4,7 +4,7 @@ namespace Rv\InputValidation;
 
 /**
  * Interface ValidationInterface
- * @package RespectValidation\InputValidation
+ * @package Rv\InputValidation
  * @author Alaa Al-Maliki <alaa.almaliki@gmail.com>
  */
 interface ValidationInterface
