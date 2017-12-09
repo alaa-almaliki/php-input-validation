@@ -1,5 +1,7 @@
 # Input Validation 
- Based on Respect Validation
+ Based on [Respect Validation](https://github.com/Respect/Validation)
+ 
+ See full list of [Validators](http://respect.github.io/Validation/docs/validators.html)
  
 # Installation
  Use composer
@@ -28,3 +30,4 @@ $isValidEmail = $validation->validate(
 var_dump($isValid);
 var_dump($isValidEmail);
 ```
+
