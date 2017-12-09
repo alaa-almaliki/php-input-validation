@@ -1,7 +1,7 @@
 # Input Validation 
  Based on [Respect Validation](https://github.com/Respect/Validation)
  
- See full list of [Validators](http://respect.github.io/Validation/docs/validators.html)
+ See full list of [Rule Validators](http://respect.github.io/Validation/docs/validators.html)
  
 # Installation
  Use composer
