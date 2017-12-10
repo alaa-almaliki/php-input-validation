@@ -29,8 +29,7 @@ class Validation implements ValidationInterface
                 $message = null;
                 foreach ($rules as $rule) {
                     $isValid &= $this->validateInput($input, $rule);
-                    if (
-                        array_key_exists('success_message', $rule)
+                    if (array_key_exists('success_message', $rule)
                         && array_key_exists('failure_message', $rule)
                     ) {
                         $message = $isValid ? $rule['success_message'] : $rule['failure_message'];
