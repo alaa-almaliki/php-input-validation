@@ -1,0 +1,32 @@
+<phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         verbose="false"
+         syntaxCheck="true"
+         backupStaticAttributes="false"
+         cacheTokens="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <php>
+        <ini name="error_reporting" value="-1" />
+    </php>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/unit/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory>./src/</directory>
+            <exclude>
+                <file>./src/ValidationInterface.php</file>
+                <file>./src/InputValidationMethodException.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="./coverage" lowUpperBound="35" highLowerBound="70"/>
+    </logging>
+</phpunit>
