@@ -42,7 +42,7 @@ $emailPostResults = $validation->validatePostData(
 );
 
 
-$emailParamResults = $validation->validateParamData(
+$emailParamResults = $validation->validateGetData(
     ['email' => 'alaa.almaliki@gmail.com'],
     [
         'email' => [
