@@ -10,6 +10,28 @@ namespace Rv\InputValidation;
 interface ValidationInterface
 {
     /**
+     * @param array $postData
+     * @param array $ruleConfig
+     * @return array
+     */
+    public function validatePostData(array $postData, array $ruleConfig);
+
+    /**
+     * @param array $params
+     * @param array $ruleConfig
+     * @return array
+     */
+    public function validateParamData(array $params, array $ruleConfig);
+
+
+    /**
+     * @param string $input
+     * @param array $rule
+     * @return bool
+     */
+    public function validateInput($input, array $rule);
+
+    /**
      * @param string $input
      * @param array $rules
      * @return bool

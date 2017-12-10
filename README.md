@@ -27,7 +27,36 @@ $isValidEmail = $validation->validate(
         ['class' => 'Email'],
     ]
 );
+
+$emailPostResults = $validation->validatePostData(
+    ['email' => 'alaa.almaliki@gmail.com'],
+    [
+        'email' => [
+            [
+                'class' => 'Email',
+                'success_message' => 'Valid Email',
+                'failure_message' => 'Not Valid Email',
+            ],
+        ],
+    ]
+);
+
+
+$emailParamResults = $validation->validateParamData(
+    ['email' => 'alaa.almaliki@gmail.com'],
+    [
+        'email' => [
+            [
+                'class' => 'Email',
+                'success_message' => 'Valid Email',
+                'failure_message' => 'Not Valid Email',
+            ],
+        ],
+    ]
+);
 var_dump($isValid);
 var_dump($isValidEmail);
+var_dump($emailPostResults);
+var_dump($emailParamResults);
 ```
 

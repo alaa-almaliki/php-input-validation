@@ -15,6 +15,56 @@ class Validation implements ValidationInterface
     const RULES_PACKAGE = 'Respect\Validation\Rules';
 
     /**
+     * @param array $postData
+     * @param array $ruleConfig
+     * @return array
+     */
+    public function validatePostData(array $postData, array $ruleConfig)
+    {
+        $validationResults = [];
+        foreach ($ruleConfig as $inputKey => $rules) {
+            if (array_key_exists($inputKey, $postData)) {
+                $input = $postData[$inputKey];
+                $isValid = true;
+                $message = null;
+                foreach ($rules as $rule) {
+                    $isValid &= $this->validateInput($input, $rule);
+                    if (
+                        array_key_exists('success_message', $rule)
+                        && array_key_exists('failure_message', $rule)
+                    ) {
+                        $message = $isValid ? $rule['success_message'] : $rule['failure_message'];
+                    }
+
+                    if (!$isValid) {
+                        break;
+                    }
+                }
+
+                $results = [
+                    'is_valid' => (bool) $isValid
+                ];
+                if ($message !== null) {
+                    $results['message'] = $message;
+                }
+                $validationResults[$inputKey] = $results;
+            }
+        }
+
+        return $validationResults;
+    }
+
+    /**
+     * @param array $params
+     * @param array $ruleConfig
+     * @return array
+     */
+    public function validateParamData(array $params, array $ruleConfig)
+    {
+        return $this->validatePostData($params, $ruleConfig);
+    }
+
+    /**
      * @param string $input
      * @param array $rules
      * @return bool
@@ -23,12 +73,29 @@ class Validation implements ValidationInterface
     {
         $isValid = true;
         foreach ($rules as $rule) {
-            $class  = $this->resolveClass($rule);
-            $ruleInstance = $this->getRuleInstance($class, $rule);
-            $isValid &= $ruleInstance->validate($input);
+            $isValid &= $this->validateInput($input, $rule);
+
+            /**
+             * Validation failed, stop validation process as no need to continue
+             */
+            if (!$isValid) {
+                break;
+            }
         }
 
         return (bool) $isValid;
+    }
+
+    /**
+     * @param string $input
+     * @param array $rule
+     * @return bool
+     */
+    public function validateInput($input, array $rule)
+    {
+        $class  = $this->resolveClass($rule);
+        $ruleInstance = $this->getRuleInstance($class, $rule);
+        return (bool) $ruleInstance->validate($input);
     }
 
     /**
