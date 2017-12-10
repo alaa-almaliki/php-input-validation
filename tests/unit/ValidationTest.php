@@ -48,13 +48,13 @@ class ValidationTest extends TestCase
     }
 
     /**
-     * @param array $postData
+     * @param array $getData
      * @param array $ruleConfig
      * @dataProvider getValidatePostData
      */
-    public function testValidateParamsData(array $postData, array $ruleConfig)
+    public function testValidateGetData(array $getData, array $ruleConfig)
     {
-        $results = $this->validation->validateParamData($postData, $ruleConfig);
+        $results = $this->validation->validateGetData($getData, $ruleConfig);
         $expected = [
             'email' => [
                 'is_valid' => true,

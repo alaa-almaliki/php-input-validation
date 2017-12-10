@@ -54,13 +54,13 @@ class Validation implements ValidationInterface
     }
 
     /**
-     * @param array $params
+     * @param array $getData
      * @param array $ruleConfig
      * @return array
      */
-    public function validateParamData(array $params, array $ruleConfig)
+    public function validateGetData(array $getData, array $ruleConfig)
     {
-        return $this->validatePostData($params, $ruleConfig);
+        return $this->validatePostData($getData, $ruleConfig);
     }
 
     /**
