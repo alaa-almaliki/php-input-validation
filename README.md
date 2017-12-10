@@ -5,6 +5,7 @@
  
 # Installation
  Use composer
+ `composer require alaa-almaliki/php-input-validation: v1.0.0`
 
 # Example
 ```
