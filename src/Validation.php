@@ -109,7 +109,7 @@ class Validation implements ValidationInterface
         }
 
         $ruleClass = $rule['class'];
-        $fullClass = self::RULES_PACKAGE . '\\' . $rule['class'];
+        $fullClass = self::RULES_PACKAGE . '\\' . $ruleClass;
 
         if (!class_exists($fullClass)) {
             throw new InputValidationMethodException(
